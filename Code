@@ -1,0 +1,114 @@
+using System;
+
+namespace Myfirstporgram
+{
+    class Program
+    {
+        static void Main(string[] args) //Entery point where our main program begins
+        { //{} are the body of the main method
+
+            Random random = new Random(); // Create a random number generator
+            bool playAgain = true; // Controls the game loop
+            String player;  // Stores the player's choice
+            String computer; // Stores the computer's random choice
+            String answer; // Stores the player's response to play again
+
+
+            while (playAgain) // Main game loop
+            {
+                player = ""; // Clear previous player choice
+                computer = ""; // Clear previous computer choice
+                answer = ""; // Clear previous play-again answer
+
+                // Loop unitl the player enters a valid choice
+                while (player != "ROCK" && player != "PAPER" && player != "SCISSORS") // != means not equal too
+                {
+                    Console.Write("Enter ROCK, PAPER, or SCISSORS: ");
+                    player = Console.ReadLine();
+                    player = player.ToUpper();
+                }
+
+                // Randomly assign computer's choice (1 = ROCK, 2 = PAPER, 3 = SCISSORS)
+                switch (random.Next(1, 4)) // generates 1, 2, or 3
+                {
+                    case 1:
+                        computer = "ROCK";
+                        break;
+                    case 2:
+                        computer = "PAPER";
+                        break;
+                    case 3:
+                        computer = "SCISSORS";
+                        break;
+                }
+                // show player and computer choices
+                Console.WriteLine("Player: " + player);
+                Console.WriteLine("Computer: " + computer); 
+
+                switch (player) // Determine the winner based on player and computer choices
+                {
+                    case "ROCK":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("It's a draw!");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You lose!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You win!");
+                        }
+                        break;
+
+                    case "PAPER":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You win!");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("It's a draw!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You lose!");
+                        }
+                        break;
+
+                    case "SCISSORS":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You lose!");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You win!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("It's a draw!");
+                        }
+                        break;
+                }
+
+                Console.WriteLine("Would you like to play agian (Y/N): ");
+                answer = Console.ReadLine();
+                answer = answer.ToUpper();
+
+                if(answer == "Y")
+                {
+                    playAgain = true;
+                }
+                else
+                {
+                    playAgain =false;
+                }
+            }
+            Console.WriteLine("Thanks for playing");
+
+            Console.ReadKey();
+        }
+    }
+}
