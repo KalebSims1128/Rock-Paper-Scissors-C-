@@ -1,4 +1,4 @@
-# Rock-Paper-Scissors-C-
+# Rock-Paper-Scissors-C#
 This is a simple Rock-Paper-Scissors game implemented in C# using the console. The player competes against the computer, which randomly selects ROCK, PAPER, or SCISSORS. The game continues until the player chooses to stop.
 
 ## Features
